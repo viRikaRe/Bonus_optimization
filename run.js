@@ -1,3 +1,5 @@
+//no longer used.
+
 const tax_rates = [0.03, 0.1, 0.2, 0.25, 0.3, 0.35, 0.45];
 const quick_deducts = [0, 105, 555, 1005, 2755, 5505, 13505];
 const base_thresholds = [-3500, 1500, 4500, 9000, 35000, 55000, 80000];
