@@ -22,9 +22,9 @@ function gen_boundary(S, M) {
   let bounds = [];
   let i = 0;
 
-  while (thrhd[i] <= S) {
+  while (thrhd[i] * M <= S) {
     bounds.push(thrhd[i]);
-    bounds.push(RoundX((S - M * thrhd[i]) / 12, 3));
+    bounds.push(RoundX((S - thrhd[i] * M) / 12, 3));
     i++;
   }
   bounds.sort(function (a, b) { return a - b; });
@@ -33,19 +33,19 @@ function gen_boundary(S, M) {
 
 function find_best(S, M) {
   let iit_best = S;
-  let iit_current;
-  let solution = [0, 0, 0];
+  let solution = [0, 0, 0, 0];
 
   for (let b of gen_boundary(S, M)) {
     let x = RoundX((S - b * 12) / M, 2);
     let iit_current = iit_ttl(b, x, M);
-    if (iit_current < iit_best - 0.01) {
+    if (iit_current < iit_best - 0.12) {
       iit_best = iit_current;
-      solution[0] = RoundX(b * 12, 2);
-      solution[1] = x;
-      solution[2] = RoundX(S - iit_best, 2);
+      solution[1] = RoundX(b * 12, 2);
+      solution[2] = RoundX((S - b * 12) / M, 2);
+      solution[3] = RoundX(S - iit_best, 2);
     }
   }
+  solution[0] = S;
   return solution;
 }
 
@@ -54,6 +54,15 @@ document.getElementById("btn_run").addEventListener("click", function () {
   let M = document.getElementById("in_alloc_months").value;
 
   document.getElementById("result").innerHTML = find_best(S, M);
+
+/*
+  document.getElementById("result").innerHTML = "";
+  let result = "";
+  for (S = 0; S < 1500000; S += 200) {
+    result += "<br>" + find_best(S, M);
+  }
+  document.getElementById("result").innerHTML = result;
+*/
 });
 
 
