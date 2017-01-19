@@ -7,28 +7,75 @@
 </head>
 
 <body>
-    <div id="note">输入税前总收入（除社保、公积金、起征点）</div>
-    <input id="in_pretax" type="text" value="18000"></input>
-    <select id="in_alloc_months">
-        <option value="1" selected="selected">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-    </select>
-    <input id="btn_run" type="button" value="Run!"></input> <br><br>
+    <table>
+        <tr>
+            <td>===Before Adjust===</td>
+        </tr>
+        <tr>
+            <td>Bonus</td>
+            <td><input id="pre_bonus" type="text" value="6000" /></td>
+        </tr>
+        <tr>
+            <td>Monthly salary</td>
+            <td><input id="pre_sal" type="text" value="12000" /></td>
+        </tr>
+        <tr>
+            <td>Social insurance</td>
+            <td><input id="pre_si" type="text" value="0" /></td>
+        </tr>
+        <tr>
+            <td>Housing fund</td>
+            <td><input id="pre_hf" type="text" value="0" /></td>
+        </tr>
+        <tr>
+            <td>Non-taxable deduction</td>
+            <td><input id="non_tax" type="text" value="3500" /></td>
+        </tr>
+        <tr>
+            <td>Allocate months</td>
+            <td><select id="alloc_months"></select></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input id="btn_run" type="button" value="Run!" /></td>
+        </tr>
 
-    <div id="label">税前总收入,奖金,月工资,税后工资合计</div>
-    <div id="result"></div>
+        <tr>
+            <td>===After Adjust===</td>
+        </tr>
+        <tr>
+            <td>Bonus</td>
+            <td id="post_bonus"></td>
+        </tr>
+        <tr>
+            <td>Monthly salary</td>
+            <td id="post_sal"></td>
+        </tr>
+        <tr>
+            <td>Net pay</td>
+            <td id="post_netpay"></td>
+        </tr>
 
-    <script src="opt.js"></script>
+        <tr>
+            <td>===Savings===</td>
+        </tr>
+        <tr>
+            <td>IIT before</td>
+            <td id="pre_iit"></td>
+        </tr>
+        <tr>
+            <td>IIT after</td>
+            <td id="post_iit"></td>
+        </tr>
+        <tr>
+            <td>IIT saving</td>
+            <td id="sav_iit"></td>
+        </tr>
+
+    </table>
+
+
+    <script src="script/opt.js"></script>
+    <script src="script/run.js"></script>
 </body>
 
 </html>
