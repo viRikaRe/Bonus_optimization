@@ -4,55 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="script/lib.js"></script>
 </head>
 
 <body>
     <table>
         <tr>
-            <td>===Before Adjust===</td>
+            <td>===INPUT===</td>
         </tr>
         <tr>
             <td>Bonus</td>
-            <td><input id="pre_bonus" type="text" value="6000" /></td>
+            <td><input id="input_bonus" type="text" value="6000" /></td>
         </tr>
         <tr>
             <td>Monthly salary</td>
-            <td><input id="pre_sal" type="text" value="12000" /></td>
+            <td><input id="input_salary" type="text" value="12000" /></td>
         </tr>
         <tr>
-            <td>Social insurance</td>
-            <td><input id="pre_si" type="text" value="0" /></td>
-        </tr>
-        <tr>
-            <td>Housing fund</td>
-            <td><input id="pre_hf" type="text" value="0" /></td>
+            <td>Social contribution</td>
+            <td><input id="input_sihf" type="text" value="0" /></td>
         </tr>
         <tr>
             <td>Non-taxable deduction</td>
-            <td><input id="non_tax" type="text" value="3500" /></td>
+            <td><input id="input_ntd" type="text" value="3500" /></td>
         </tr>
         <tr>
             <td>Allocate months</td>
             <td><select id="alloc_months"></select></td>
         </tr>
-        <tr>
-            <td colspan="2"><input id="btn_run" type="button" value="Run!" /></td>
-        </tr>
+    </table>
 
+    <input id="btn_run" type="button" value="Run!" />
+
+    <table>
+        <tr>
+            <td>===Before Adjust===</td>
+        </tr>
         <tr>
             <td>===After Adjust===</td>
         </tr>
         <tr>
             <td>Bonus</td>
-            <td id="post_bonus"></td>
+            <td id="bonus1"></td>
         </tr>
         <tr>
             <td>Monthly salary</td>
-            <td id="post_sal"></td>
+            <td id="salary1"></td>
         </tr>
         <tr>
             <td>Net pay</td>
-            <td id="post_netpay"></td>
+            <td id="netpay1"></td>
         </tr>
 
         <tr>
@@ -60,21 +61,21 @@
         </tr>
         <tr>
             <td>IIT before</td>
-            <td id="pre_iit"></td>
+            <td id="iit0"></td>
         </tr>
         <tr>
             <td>IIT after</td>
-            <td id="post_iit"></td>
+            <td id="iit1"></td>
         </tr>
         <tr>
             <td>IIT saving</td>
-            <td id="sav_iit"></td>
+            <td id="iit_diff"></td>
         </tr>
-
     </table>
 
+    <div id="result"></div>
 
-    <script src="script/opt.js"></script>
+    <script src="script/opt2.js"></script>
     <script src="script/run.js"></script>
 </body>
 

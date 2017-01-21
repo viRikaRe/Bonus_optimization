@@ -78,7 +78,3 @@ function find_best(S, M) {
   solution["Sum"] = S;
   return solution;
 }
-
-
-
-/*** Wrap-up functions ***/

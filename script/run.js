@@ -9,20 +9,36 @@ function addDropdownOption() {
 document.addEventListener("DOMContentLoaded", addDropdownOption());
 
 document.getElementById("btn_run").addEventListener("click", function () {
-  let pre_bonus = parseFloat(document.getElementById("pre_bonus").value);
-  let pre_sal = parseFloat(document.getElementById("pre_sal").value);
-  let si = parseFloat(document.getElementById("pre_si").value);
-  let hf = parseFloat(document.getElementById("pre_hf").value);
-  let non_tax = parseFloat(document.getElementById("non_tax").value);
 
-  let M = document.getElementById("alloc_months").value;
-  let S = pre_bonus + (pre_sal - si - hf - non_tax) * M;
+  //Actual code here...
 
-  let post_bonus = find_best(S, M).bonus; document.getElementById("post_bonus").innerHTML = post_bonus;
-  let post_sal = find_best(S, M).salary + si + hf + non_tax; document.getElementById("post_sal").innerHTML = post_sal;
-  let post_netpay = find_best(S, M).netpay; document.getElementById("post_netpay").innerHTML = post_netpay + non_tax;
+  /*Speed Test*/
+  let sss = "";
+  let flag = false;
+  let last_b = 0;
+  let last_s = 0;
+  let last_a = 0;
 
-  let pre_iit = iit_ttl(pre_bonus / 12, pre_sal - si - hf - non_tax, M); document.getElementById("pre_iit").innerHTML = pre_iit;
-  let post_iit = find_best(S, M).iit; document.getElementById("post_iit").innerHTML = post_iit;
-  document.getElementById("sav_iit").innerHTML = RoundX(pre_iit - post_iit, 2);
+  for (let p = 0; p < 2000000; p += 20) {
+    let rs = get_solution(p, 12);
+
+    switch (flag) {
+      case true:
+        if (rs.B1 != last_b) {
+          sss += "<br>" + last_a + "," + last_b + "," + last_s;
+          flag = false;
+        }
+        break;
+      case false:
+        if (rs.S1 != last_s) {
+          sss += "<br>" + last_a + "," + last_b + "," + last_s;
+          flag = true;
+        }
+    }
+
+    last_b = rs.B1;
+    last_s = rs.S1;
+    last_a = rs.A1;
+  }
+  document.getElementById("result").innerHTML = sss;
 });
