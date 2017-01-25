@@ -6,7 +6,7 @@ const r = [0.03, 0.1, 0.2, 0.25, 0.3, 0.35, 0.45];
 const q = [0, 105, 555, 1005, 2755, 5505, 13505];
 
 
-/*** Core functions ***/
+/*************** Core functions ***************/
 //Calculate IIT based on taxable bonus
 //Input (Bonus); Return [IIT, TaxRate, QuickDeduction]
 function iit_net_b(B) {
@@ -94,18 +94,6 @@ function get_best_result(A, M, K = 1) {
   return { B, IIT };
 }
 
-function get_solution(A0, M) {
-  let result = get_best_result(A0, M);
-
-  let sol = {};
-  sol.A1 = alloc(A0, result.B, M).A;
-  sol.B1 = result.B;
-  sol.S1 = alloc(A0, result.B, M).S;
-  sol.IIT1 = result.IIT;
-  sol.NET1 = sol.A1 - sol.IIT1;
-  return sol;
-}
-
 function get_all_solutions(A0, M) {
   let result = get_all_results(A0, M);
   let sol = [];
@@ -118,5 +106,17 @@ function get_all_solutions(A0, M) {
     sol[i].IIT1 = result[i].IIT;
     sol[i].NET1 = sol[i].A1 - sol[i].IIT1;
   }
+  return sol;
+}
+
+function get_solution(A0, M) {
+  let result = get_best_result(A0, M);
+
+  let sol = {};
+  sol.A1 = alloc(A0, result.B, M).A;
+  sol.B1 = result.B;
+  sol.S1 = alloc(A0, result.B, M).S;
+  sol.IIT1 = result.IIT;
+  sol.NET1 = sol.A1 - sol.IIT1;
   return sol;
 }

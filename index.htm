@@ -3,74 +3,77 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Bonus Optimization</title>
     <script src="script/lib.js"></script>
+    <script src="lib/big.min.js"></script>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td>===INPUT===</td>
-        </tr>
-        <tr>
-            <td>Bonus</td>
-            <td><input id="input_bonus" type="text" value="6000" /></td>
-        </tr>
-        <tr>
-            <td>Monthly salary</td>
-            <td><input id="input_salary" type="text" value="12000" /></td>
-        </tr>
-        <tr>
-            <td>Social contribution</td>
-            <td><input id="input_sihf" type="text" value="0" /></td>
-        </tr>
-        <tr>
-            <td>Non-taxable deduction</td>
-            <td><input id="input_ntd" type="text" value="3500" /></td>
-        </tr>
-        <tr>
-            <td>Allocate months</td>
-            <td><select id="alloc_months"></select></td>
-        </tr>
+    <table id="tbl_input">
+        <thead>
+            <tr>
+                <th>奖金</th>
+                <th>月度工资</th>
+                <th>社保公积金</th>
+                <th>免税扣除</th>
+                <th>分摊月数</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input id="input_bonus" class="inputbox" type="text" value="6000" /></td>
+                <td><input id="input_salary" class="inputbox" type="text" value="12000" /></td>
+                <td><input id="input_sihf" class="inputbox" type="text" value="0" /></td>
+                <td><input id="input_ntd" class="inputbox" type="text" value="3500" /></td>
+                <td><select id="alloc_months"></select></td>
+            </tr>
+        </tbody>
     </table>
 
     <input id="btn_run" type="button" value="Run!" />
+    <div id="lbl_warning"></div>
 
-    <table>
-        <tr>
-            <td>===Before Adjust===</td>
-        </tr>
-        <tr>
-            <td>===After Adjust===</td>
-        </tr>
-        <tr>
-            <td>Bonus</td>
-            <td id="bonus1"></td>
-        </tr>
-        <tr>
-            <td>Monthly salary</td>
-            <td id="salary1"></td>
-        </tr>
-        <tr>
-            <td>Net pay</td>
-            <td id="netpay1"></td>
-        </tr>
+    <table id="tbl_output">
+        <thead>
+            <tr>
+                <td></td>
+                <th id="lbl_total">应发金额</th>
+                <th id="lbl_bonus">奖金</th>
+                <th id="lbl_salary">月度工资</th>
+                <th id="lbl_iit">个税</th>
+                <th id="lbl_netpay">实发金额</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>调整前</th>
+                <td id="total0"></td>
+                <td id="bonus0"></td>
+                <td id="salary0"></td>
+                <td id="iit0"></td>
+                <td id="netpay0"></td>
+            </tr>
+            <tr>
+                <th>调整后</th>
+                <td id="total1"></td>
+                <td id="bonus1"></td>
+                <td id="salary1"></td>
+                <td id="iit1"></td>
+                <td id="netpay1"></td>
+            </tr>
+            <tr>
+                <th>差异</th>
+                <td id="totale"></td>
+                <td id="bonuse"></td>
+                <td id="salarye"></td>
+                <td id="iite"></td>
+                <td id="netpaye"></td>
+            </tr>
+        </tbody>
+        <tfoot>
 
-        <tr>
-            <td>===Savings===</td>
-        </tr>
-        <tr>
-            <td>IIT before</td>
-            <td id="iit0"></td>
-        </tr>
-        <tr>
-            <td>IIT after</td>
-            <td id="iit1"></td>
-        </tr>
-        <tr>
-            <td>IIT saving</td>
-            <td id="iit_diff"></td>
-        </tr>
+        </tfoot>
     </table>
 
     <div id="result"></div>
