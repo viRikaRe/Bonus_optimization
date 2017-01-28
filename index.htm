@@ -5,80 +5,86 @@
     <meta charset="UTF-8">
     <title>Bonus Optimization</title>
     <script src="script/lib.js"></script>
-    <script src="lib/big.min.js"></script>
+    <script src="script/opt.js"></script>
     <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
-    <table id="tbl_input">
-        <thead>
-            <tr>
-                <th>奖金</th>
-                <th>月度工资</th>
-                <th>社保公积金</th>
-                <th>免税扣除</th>
-                <th>分摊月数</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input id="input_bonus" class="inputbox" type="text" value="6000" /></td>
-                <td><input id="input_salary" class="inputbox" type="text" value="12000" /></td>
-                <td><input id="input_sihf" class="inputbox" type="text" value="0" /></td>
-                <td><input id="input_ntd" class="inputbox" type="text" value="3500" /></td>
-                <td><select id="alloc_months"></select></td>
-            </tr>
-        </tbody>
-    </table>
 
-    <input id="btn_run" type="button" value="Run!" />
-    <div id="lbl_warning"></div>
+    <div id="tbl_input">
+        <div class="input_block">
+            <span class="th">分摊月数</span><select id="input_months"></select>
+        </div>
+        <div class="input_block">
+            <span class="th">年度奖金</span><input id="input_bonus" class="inputbox" type="text" value="6000" />
+        </div>
+        <div class="input_block">
+            <span class="th">月度工资</span><input id="input_salary" class="inputbox" type="text" value="12000" />
+        </div>
+        <div class="input_block">
+            <span class="th">免税津贴</span><input id="input_nta" class="inputbox" type="text" value="6000" />
+        </div>
+        <div class="input_block">
+            <span class="th">五险一金</span><input id="input_sihf" class="inputbox" type="text" value="0" />
+        </div>
+        <div class="input_block">
+            <span class="th">起征点</span><select id="input_deduction"></select>
+        </div>
+    </div>
 
-    <table id="tbl_output">
-        <thead>
-            <tr>
-                <td></td>
-                <th id="lbl_total">应发金额</th>
-                <th id="lbl_bonus">奖金</th>
-                <th id="lbl_salary">月度工资</th>
-                <th id="lbl_iit">个税</th>
-                <th id="lbl_netpay">实发金额</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>调整前</th>
-                <td id="total0"></td>
-                <td id="bonus0"></td>
-                <td id="salary0"></td>
-                <td id="iit0"></td>
-                <td id="netpay0"></td>
-            </tr>
-            <tr>
-                <th>调整后</th>
-                <td id="total1"></td>
-                <td id="bonus1"></td>
-                <td id="salary1"></td>
-                <td id="iit1"></td>
-                <td id="netpay1"></td>
-            </tr>
-            <tr>
-                <th>差异</th>
-                <td id="totale"></td>
-                <td id="bonuse"></td>
-                <td id="salarye"></td>
-                <td id="iite"></td>
-                <td id="netpaye"></td>
-            </tr>
-        </tbody>
-        <tfoot>
+    <div id="tbl_run">
+        <input id="btn_run" type="button" value="优化" />
+        <span id="lbl_warning"></span>
+    </div>
 
-        </tfoot>
-    </table>
+    <div class="clear"></div>
 
-    <div id="result"></div>
+    <div id="summary">
+        <p>
+            <span>经计算，调整后净收入总计增加：</span><br>
+            <span>￥</span><span id="amount">0</span><span>元</span>
+        </p>
+    </div>
 
-    <script src="script/opt2.js"></script>
+    <div class="clear"></div>
+
+    <div id="tbl_output">
+        <div id="labels" class="output_block">
+            <span id="title_lbl" class="th">&nbsp;</span>
+            <span id="bonus_lbl" class="th">年度奖金</span>
+            <span id="salary_lbl" class="th">月度工资</span>
+            <span id="sihf_lbl" class="th">五险一金</span>
+            <span id="iit_lbl" class="th">个税总计</span>
+            <span id="net_lbl" class="th">实发总计</span>
+        </div>
+        <div id="before_adj" class="output_block">
+            <span id="title_0" class="th">调整前</span>
+            <span id="bonus_0" class="td">&nbsp;</span>
+            <span id="salary_0" class="td">&nbsp;</span>
+            <span id="sihf_0" class="td">&nbsp;</span>
+            <span id="iit_0" class="td">&nbsp;</span>
+            <span id="net_0" class="td">&nbsp;</span>
+        </div>
+        <div id="after_adj" class="output_block">
+            <span id="title_1" class="th">调整后</span>
+            <span id="bonus_1" class="td">&nbsp;</span>
+            <span id="salary_1" class="td">&nbsp;</span>
+            <span id="sihf_1" class="td">&nbsp;</span>
+            <span id="iit_1" class="td">&nbsp;</span>
+            <span id="net_1" class="td">&nbsp;</span>
+        </div>
+        <div id="change" class="output_block">
+            <span id="title_change" class="th">变化</span>
+            <span id="bonus_change" class="td">&nbsp;</span>
+            <span id="salary_change" class="td">&nbsp;</span>
+            <span id="sihf_change" class="td">&nbsp;</span>
+            <span id="iit_change" class="td">&nbsp;</span>
+            <span id="net_change" class="td">&nbsp;</span>
+        </div>
+    </div>
+
+
+
     <script src="script/run.js"></script>
 </body>
 

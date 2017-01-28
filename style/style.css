@@ -1,74 +1,113 @@
 body{
-  color: #333;
-  font: 9pt sans-serif;
+  font: 3vmin/6vmin sans-serif;
+  color: #111;
 }
 
-#btn_run{
-  display: inline-block;
+/*****************************/
+#tbl_run{
+  display: block;
+  float: right;
+  width: 20%;
+  height: 25vmin;
 }
-#lbl_warning{
-  display: inline-block;
+#tbl_run input{
+  display: block;
+  width: 100%;
+  height: 50%;
+  background-color: #3498db;
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: 0px 0px 3px #666666;
+  color: #fff;
+  font-size: 4vmin;
+}
+#tbl_run input:hover{
+  background-color: #3cb0fd;
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+}
+#tbl_run #lbl_warning{
+  display: block;
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  vertical-align: middle;
   color: red;
-  font-size: 9pt;
 }
 
-/***** Input *****/
+.clear{
+  clear: both;
+  height: 1vmin;
+}
+
+/********************************************/
 #tbl_input{
-  width: 100%;
-}
-#tbl_input th{
-  width: 10%;
-  vertical-align: bottom;
-  font-size: 10.5pt;
-  color: #fff;
-  background-color: #258;
-}
-#tbl_input td{
-  text-align: center;
-  padding: 0;
-}
-#tbl_input td>input{
-  width: 100%;
+  display: block;
+  float: left;
   box-sizing: border-box;
-  border: solid 0.5px transparent;
-  background-color: #eff;
-  text-align: right;
+  width: 75%;
 }
-#tbl_input td>input:hover{
-  background-color: #def;
-}
-#tbl_input td>select{
+#tbl_input .input_block{
+  display: block;
+  box-sizing: border-box;
   width: 100%;
+  border: solid #fff 1px;
+}
+#tbl_input .th{
+  display: inline-block;
+  box-sizing: border-box;
+  width: 33.33%;
   text-align: center;
-  border: solid 0.5px transparent;
-  background-color: #eff;
-}
-#tbl_input td>select:hover{
-  background-color: #def;
-}
-
-/***** Output *****/
-#tbl_output{
-  width: 100%;
-}
-#tbl_output th{
-  font-size: 10.5pt;
-}
-#tbl_output thead th{
-  width: 15%;
-  color: #fff;
-  background-color: #333;
-  text-align: center;
-  vertical-align: bottom;
-}
-#tbl_output tbody th{
-  width: 10%;
   color: #eee;
   background-color: #666;
-  text-align: right;
 }
-#tbl_output tbody td{
-  background-color: #eee;
+#tbl_input input, #tbl_input select{
+  display: inline-block;
+  box-sizing: border-box;
+  width: 66.67%;
+  height: 6vmin;
+  vertical-align: bottom;
+  border: none;
+  background-color: #cdf;
+  font: 3vmin/6vmin monospace;
+}
+
+/*****************************************/
+#summary{
+  width: 100%;
+  text-align: center;
+  font-size: 6vmin;
+}
+#summary #amount{
+  color: #c33;
+  font: 12vmin cursive;
+}
+
+/*****************************************/
+#tbl_output{
+  display:block;
+  clear: both;
+  width: 100%;
+}
+#tbl_output .output_block{
+  display: block;
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+}
+#tbl_output span{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border: solid #fff 1px;
+}
+#tbl_output span.th{
+  text-align: center;
+  color: #eee;
+  background-color: #396;
+}
+#tbl_output span.td{
   text-align: right;
-  font: 8pt monospace;
+  font-family: monospace;
+  background-color: #ddd;
 }

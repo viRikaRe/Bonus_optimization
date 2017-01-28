@@ -1,5 +1,6 @@
 //Thanks to MDN
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+//Caution: this function is very slow!
 function RoundX(value, exp) {
   if (+value < 0) return -RoundX(-value, exp);
 

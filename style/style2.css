@@ -1,0 +1,74 @@
+body{
+  color: #333;
+  font: 9pt sans-serif;
+}
+
+#btn_run{
+  display: inline-block;
+}
+#lbl_warning{
+  display: inline-block;
+  color: red;
+  font-size: 9pt;
+}
+
+/***** Input *****/
+#tbl_input{
+  width: 100%;
+}
+#tbl_input th{
+  width: 10%;
+  vertical-align: bottom;
+  font-size: 10.5pt;
+  color: #fff;
+  background-color: #258;
+}
+#tbl_input td{
+  text-align: center;
+  padding: 0;
+}
+#tbl_input td>input{
+  width: 100%;
+  box-sizing: border-box;
+  border: solid 0.5px transparent;
+  background-color: #eff;
+  text-align: right;
+}
+#tbl_input td>input:hover{
+  background-color: #def;
+}
+#tbl_input td>select{
+  width: 100%;
+  text-align: center;
+  border: solid 0.5px transparent;
+  background-color: #eff;
+}
+#tbl_input td>select:hover{
+  background-color: #def;
+}
+
+/***** Output *****/
+#tbl_output{
+  width: 100%;
+}
+#tbl_output th{
+  font-size: 10.5pt;
+}
+#tbl_output thead th{
+  width: 15%;
+  color: #fff;
+  background-color: #333;
+  text-align: center;
+  vertical-align: bottom;
+}
+#tbl_output tbody th{
+  width: 10%;
+  color: #eee;
+  background-color: #666;
+  text-align: right;
+}
+#tbl_output tbody td{
+  background-color: #eee;
+  text-align: right;
+  font: 8pt monospace;
+}
