@@ -26,10 +26,14 @@ document.getElementById("btn_run").addEventListener("click", function () {
   let in_deduction = +document.getElementById("input_deduction").value;
   if (isNaN(in_months + in_salary + in_bonus + in_nta + in_sihf + in_deduction)) {
     document.getElementById("lbl_warning").innerHTML = "输入错误！<br>请检查！";
+    document.getElementById("summary").style.display = "none";
+    document.getElementById("toggle_output").style.display = "none";
     return;
   }
   else {
     document.getElementById("lbl_warning").innerHTML = "";
+    document.getElementById("summary").style.display = "block";
+    document.getElementById("toggle_output").style.display = "block";
   }
 
   let [sol_0, sol_1] = opt(in_months, in_bonus, in_salary, in_nta, in_sihf, in_deduction);
@@ -46,11 +50,24 @@ document.getElementById("btn_run").addEventListener("click", function () {
   document.getElementById("iit_1").innerHTML = sol_1.total.iit.toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   document.getElementById("net_1").innerHTML = sol_1.total.net.toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-  document.getElementById("bonus_change").innerHTML = (sol_1.bonus.gross-sol_0.bonus.gross).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  document.getElementById("salary_change").innerHTML = (sol_1.salary.gross-sol_0.salary.gross).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  document.getElementById("sihf_change").innerHTML = (sol_1.sihf-sol_0.sihf).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  document.getElementById("iit_change").innerHTML = (sol_1.total.iit-sol_0.total.iit).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  document.getElementById("net_change").innerHTML = (sol_1.total.net-sol_0.total.net).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById("bonus_change").innerHTML = (sol_1.bonus.gross - sol_0.bonus.gross).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById("salary_change").innerHTML = (sol_1.salary.gross - sol_0.salary.gross).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById("sihf_change").innerHTML = (sol_1.sihf - sol_0.sihf).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById("iit_change").innerHTML = (sol_1.total.iit - sol_0.total.iit).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById("net_change").innerHTML = (sol_1.total.net - sol_0.total.net).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-  document.getElementById("amount").innerHTML = (sol_1.total.net-sol_0.total.net).toLocaleString("zh-CN", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  document.getElementById("amount").innerHTML = (sol_1.total.net - sol_0.total.net).toLocaleString("zh-CN", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+});
+
+document.getElementById("toggle_output").addEventListener("click", function () {
+  let element = document.getElementById("tbl_output");
+  if (element.style.display != "block") {
+    element.style.display = "block";
+    document.getElementById("toggle_output_arrow").innerHTML="▼";
+  }
+  else {
+    element.style.display="none";
+    document.getElementById("toggle_output_arrow").innerHTML="▶";
+  }
+
 });

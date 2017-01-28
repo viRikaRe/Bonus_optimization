@@ -10,19 +10,21 @@
 </head>
 
 <body>
+    <div id="caption">年终奖个税优化计算器</div>
+    <hr>
 
     <div id="tbl_input">
         <div class="input_block">
             <span class="th">分摊月数</span><select id="input_months"></select>
         </div>
         <div class="input_block">
-            <span class="th">年度奖金</span><input id="input_bonus" class="inputbox" type="text" value="6000" />
+            <span class="th">年度奖金</span><input id="input_bonus" class="inputbox" type="text" value="20000" />
         </div>
         <div class="input_block">
-            <span class="th">月度工资</span><input id="input_salary" class="inputbox" type="text" value="12000" />
+            <span class="th">月度工资</span><input id="input_salary" class="inputbox" type="text" value="20000" />
         </div>
         <div class="input_block">
-            <span class="th">免税津贴</span><input id="input_nta" class="inputbox" type="text" value="6000" />
+            <span class="th">免税津贴</span><input id="input_nta" class="inputbox" type="text" value="0" />
         </div>
         <div class="input_block">
             <span class="th">五险一金</span><input id="input_sihf" class="inputbox" type="text" value="0" />
@@ -48,6 +50,7 @@
 
     <div class="clear"></div>
 
+    <div id="toggle_output">显示详情<span id="toggle_output_arrow">▶</span></div>
     <div id="tbl_output">
         <div id="labels" class="output_block">
             <span id="title_lbl" class="th">&nbsp;</span>
